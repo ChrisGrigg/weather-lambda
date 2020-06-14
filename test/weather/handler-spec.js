@@ -8,12 +8,12 @@ const underTest = require('../../weather/handler.js');
 describe('Handler', () => {
 	const event = {
 		queryStringParameters: {
-			city: 'Brisbane'
+			city: 'London'
 		}
 	};
 	const context = {};
 
-	it('will use "London" as the city and return false as outdoorTemperature is low', (done) => {
+	it('will return false as outdoorTemperature is low', (done) => {
 		nock('http://api.openweathermap.org/data/2.5')
 			.get(`/weather?q=${event.queryStringParameters.city}&appid=${apiKey}`)
 			.reply(200, { main: { temp: 100 } });
@@ -37,7 +37,7 @@ describe('Handler', () => {
 		});
 	});
 
-	it('will use "Brisbane" as the city and return true as outdoorTemperature is high', (done) => {
+	it('will return true as outdoorTemperature is high', (done) => {
 		nock('http://api.openweathermap.org/data/2.5')
 			.get(`/weather?q=${event.queryStringParameters.city}&appid=${apiKey}`)
 			.reply(200, { main: { temp: 300 } });

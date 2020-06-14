@@ -7,11 +7,9 @@
   },
   "dependencies": {
     "axios": "^0.19.2",
-    "bent": "^7.3.4",
     "serverless": "^1.67.3"
   },
   "devDependencies": {
-    "axios-mock-adapter": "^1.18.1",
     "chai": "^4.2.0",
     "eslint": "^4.19.1",
     "eslint-config-airbnb-base": "^12.1.0",
@@ -19,7 +17,6 @@
     "mocha": "^8.0.1",
     "nock": "^12.0.3",
     "nyc": "^15.1.0",
-    "serverless-offline": "^5.12.1",
-    "sinon": "^4.5.0"
+    "serverless-offline": "^5.12.1"
   }
 }
