@@ -1,6 +1,10 @@
 # weather-lambda
 
-To run this locally: 'npm i && npm start'. This will use the 'serverless-offline' package.
+To run this locally using the 'serverless-offline' package: 
+
+'npm i && npm start'
+
+To unit test: 'npm test'
 
 Developed using node version 12.16.1 and npm version 6.14.4.
 
