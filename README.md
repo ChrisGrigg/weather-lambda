@@ -4,6 +4,8 @@ To run this locally: 'npm i && npm start'. This will use the 'serverless-offline
 
 Developed using node version 12.16.1 and npm version 6.14.4.
 
+Address for this Lambda on AWS is 'https://mjlmap9ys3.execute-api.ap-southeast-2.amazonaws.com/development/weather/main?city=London'
+
 TODO: with more time:
 
 - make a centralised 'response' class that handles 200 or error response
@@ -12,3 +14,4 @@ TODO: with more time:
 - make centralised error handling which sends all errors to error log in cloud which notifies the dev team (cloudwatch logs in AWS are hard to use)
 - tighten up CORS so only the client can access this Lambda (config would be required for; local, dev, uat and prod environments)
 - use typescript
+- add security to the Lambda using JWT with AWS Cognito for management
