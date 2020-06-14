@@ -1,0 +1,11 @@
+# package directories
+node_modules
+jspm_packages
+.nyc_output
+
+# Serverless directories
+.serverless
+.idea
+
+# other directories
+config.**.json

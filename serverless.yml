@@ -1,0 +1,28 @@
+# this setup allows for other Lambda's to be added as additional subdirectories
+
+service: lambda
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  region: ap-southeast-2
+
+package:
+  individually: true
+  exclude:
+      - "*/**"
+
+functions:
+  weather:
+    handler: weather/handler.main
+    events:
+      - http:
+          path: weather/main
+          method: get
+          cors: true
+    package:
+      include:
+          - 'weather/**'
+
+plugins:
+  - serverless-offline
