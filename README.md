@@ -10,11 +10,12 @@ Developed using node version 12.16.1 and npm version 6.14.4.
 
 Address for this Lambda on AWS is 'https://mjlmap9ys3.execute-api.ap-southeast-2.amazonaws.com/development/weather/main?city=London'
 
-TODO: with more time:
+Example of things that could be done with more time:
 
+- use jest not mock as it's the best unit testing tool currently
 - make a centralised 'response' class that handles 200 or error response
 - put API keys in AWS environment variables for security in case a hacker gets hold of source version control
-- use 'serverless-bundle' with webpack so es2020 can be used
+- use 'serverless-bundle' with webpack so >es6 can be used
 - make centralised error handling which sends all errors to error log in cloud which notifies the dev team (cloudwatch logs in AWS are hard to use)
 - tighten up CORS so only the client can access this Lambda (config would be required for; local, dev, uat and prod environments)
 - use typescript

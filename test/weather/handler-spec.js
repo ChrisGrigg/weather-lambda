@@ -5,6 +5,12 @@ const nock = require('nock');
 const apiKey = '4fc1c3b55b2c1e1fcaa65ae67e2841ca';
 const underTest = require('../../weather/handler.js');
 
+const headers = {
+	'Access-Control-Allow-Origin': '*',
+	'Access-Control-Allow-Credentials': true,
+	'Content-Type': 'application/json'
+};
+
 describe('Handler', () => {
 	const event = {
 		queryStringParameters: {
@@ -22,11 +28,7 @@ describe('Handler', () => {
 			try {
 				expect(response).to.deep.equal({
 					statusCode: 200,
-					headers: {
-						'Access-Control-Allow-Origin': '*',
-						'Access-Control-Allow-Credentials': true,
-						'Content-Type': 'application/json'
-					},
+					headers,
 					// eslint-disable-next-line quotes
 					body: "{\"outdoorTemperature\":false}"
 				});
@@ -46,11 +48,7 @@ describe('Handler', () => {
 			try {
 				expect(response).to.deep.equal({
 					statusCode: 200,
-					headers: {
-						'Access-Control-Allow-Origin': '*',
-						'Access-Control-Allow-Credentials': true,
-						'Content-Type': 'application/json'
-					},
+					headers,
 					// eslint-disable-next-line quotes
 					body: "{\"outdoorTemperature\":true}"
 				});
@@ -65,11 +63,7 @@ describe('Handler', () => {
 		underTest.main(null, context, (err, response) => {
 			expect(response).to.deep.equal({
 				statusCode: 500,
-				headers: {
-					'Access-Control-Allow-Origin': '*',
-					'Access-Control-Allow-Credentials': true,
-					'Content-Type': 'application/json'
-				},
+				headers,
 				// eslint-disable-next-line quotes
 				body: "{\"status\":false}"
 			});
@@ -85,11 +79,7 @@ describe('Handler', () => {
 		underTest.main(event, context, (err, response) => {
 			expect(response).to.deep.equal({
 				statusCode: 500,
-				headers: {
-					'Access-Control-Allow-Origin': '*',
-					'Access-Control-Allow-Credentials': true,
-					'Content-Type': 'application/json'
-				},
+				headers,
 				// eslint-disable-next-line quotes
 				body: "{\"status\":false}"
 			});

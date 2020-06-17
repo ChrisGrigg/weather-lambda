@@ -10,12 +10,12 @@ const headers = {
 module.exports.main = async (event, context, callback) => {
 	try {
 		const { city } = event.queryStringParameters;
-		const response = await axios.get(`http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`);
+		const { data: { main: { temp } } } = await axios.get(`http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`);
 		const outdoorTempThreshold = 290;
 		const responseClient = {
 			statusCode: 200,
 			headers,
-			body: JSON.stringify({ outdoorTemperature: response.data.main.temp > outdoorTempThreshold })
+			body: JSON.stringify({ outdoorTemperature: temp > outdoorTempThreshold })
 		};
 		callback(null, responseClient);
 	} catch (error) {
