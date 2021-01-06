@@ -6,7 +6,7 @@
     "fix": "eslint --fix '**/*.js'"
   },
   "dependencies": {
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "serverless": "^1.67.3"
   },
   "devDependencies": {
